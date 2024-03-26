@@ -13,7 +13,7 @@ const useSocket = (setFriendList, setMessages) => {
     });
 
     socket.on("messages", (messages) => {
-      setMessages(messages); //Loading all messages when user starts the application.
+      setMessages(messages); //Loading all messages when user starts the application..
     });
 
     socket.on("dm", (message) => {
