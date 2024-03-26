@@ -19,7 +19,7 @@ const Login = () => {
       setLoading(true);
 
       const res = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/auth/signin`,
+        `${import.meta.env.VITE_SERVER_URL}auth/signin`,
 
         {
           method: "POST",

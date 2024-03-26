@@ -16,7 +16,7 @@ const Signup = () => {
   const submitSignupForm = async (values, helpers) => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_SERVER_URL}/auth/signup`,
+        `${import.meta.env.VITE_SERVER_URL}auth/signup`,
 
         {
           method: "POST",
