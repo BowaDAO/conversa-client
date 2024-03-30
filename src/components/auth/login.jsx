@@ -19,7 +19,7 @@ const Login = () => {
       setLoading(true);
 
       const res = await fetch(
-        `https://conversaa-7b9b5c295bf3.herokuapp.com/auth/signin`,
+        `${import.meta.env.VITE_SERVER_URL}/auth/signin`,
 
         {
           method: "POST",
