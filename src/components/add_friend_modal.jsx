@@ -13,13 +13,13 @@ import {
 import TextField from "./text_field";
 import { Form, Formik } from "formik";
 import { addFriendValidationSchema } from "../utilities/formValidation";
-import socket from "../configs/socket";
 import { useCallback, useContext, useState } from "react";
-import { FriendContext } from "./pages/home";
+import { FriendContext, SocketContext } from "./pages/home";
 
 const AddFriendModal = ({ isOpen, onClose }) => {
   const [error, setError] = useState();
   const { setFriendList } = useContext(FriendContext);
+  const { socket } = useContext(SocketContext);
 
   const closeModal = useCallback(() => {
     setError("");

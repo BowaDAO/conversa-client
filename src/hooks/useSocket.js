@@ -5,7 +5,7 @@ const useSocket = (setFriendList, setMessages, socket) => {
   const { setUser } = useContext(AccountContext);
 
   useEffect(() => {
-    socket.connect();
+    socket.io.connect();
 
     socket.on("friends", (friendList) => {
       setFriendList(friendList); //Loading all friends list when user starts the application.

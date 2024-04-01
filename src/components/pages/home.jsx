@@ -15,10 +15,10 @@ const Home = () => {
   const [messages, setMessages] = useState([]);
   const [friendIndex, setFriendIndex] = useState(0);
   const { user } = useContext(AccountContext);
-  const [socket, setSocket] = useState(() => socketConnection(user).io);
+  const [socket, setSocket] = useState(() => socketConnection(user));
 
   useEffect(() => {
-    setSocket(() => socketConnection(user).io);
+    setSocket(() => socketConnection(user));
   }, [user]);
 
   useSocket(setFriendList, setMessages, socket);
