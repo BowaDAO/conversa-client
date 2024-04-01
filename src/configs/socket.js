@@ -1,8 +1,12 @@
 import { io } from "socket.io-client";
 
-const socket = new io(import.meta.env.VITE_SERVER_URL, {
-  autoConnect: false,
-  withCredentials: true,
-});
+const socketConnection = (user) =>
+  io(import.meta.env.VITE_SERVER_URL, {
+    autoConnect: false,
+    withCredentials: true,
+    auth: {
+      token: user.token,
+    },
+  });
 
-export default socket;
+export default socketConnection;

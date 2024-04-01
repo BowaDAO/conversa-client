@@ -36,6 +36,7 @@ const Signup = () => {
 
       const data = await res.json();
       setUser({ ...data });
+      localStorage.setItem("token", data.token);
       navigate("/home");
     } catch (error) {
       return;

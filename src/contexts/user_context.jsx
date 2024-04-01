@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 export const AccountContext = createContext();
 
 const UserContext = ({ children }) => {
-  const [user, setUser] = useState({ loggedIn: null });
+  const [user, setUser] = useState({
+    loggedIn: null,
+    token: localStorage.getItem("token"),
+  });
 
   const navigate = useNavigate();
 
@@ -14,8 +17,13 @@ const UserContext = ({ children }) => {
       try {
         const res = await fetch(
           `${import.meta.env.VITE_SERVER_URL}/auth/signin`,
+
           {
+            method: "GET",
             credentials: "include",
+            headers: {
+              authorization: `Bearer ${user.token}`,
+            },
           }
         );
 
@@ -26,7 +34,7 @@ const UserContext = ({ children }) => {
 
         const data = await res.json();
 
-        setUser({ ...data });
+        setUser({ ...data, token: data.decodedToken });
         navigate("/home");
       } catch (error) {
         setUser({ loggedIn: false });

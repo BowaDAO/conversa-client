@@ -2,12 +2,12 @@ import { Button, HStack, Input } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
-import socket from "../configs/socket";
 import { useContext } from "react";
-import { MessageContext } from "./pages/home";
+import { MessageContext, SocketContext } from "./pages/home";
 
 const ChatBox = ({ userid }) => {
   const { setMessages } = useContext(MessageContext);
+  const { socket } = useContext(SocketContext);
 
   const sendMessage = (values, helpers) => {
     const message = { to: userid, from: null, content: values.message };

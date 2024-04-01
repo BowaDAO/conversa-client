@@ -42,6 +42,8 @@ const Login = () => {
 
       setUser({ ...data });
 
+      localStorage.setItem("token", data.token);
+
       navigate("/home");
 
       setLoading(false);
